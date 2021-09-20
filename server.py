@@ -55,7 +55,7 @@ class MyWebServer(socketserver.BaseRequestHandler):
             response = protocol + " " + status + self.getContentType(filepath) + contentLength + "Connection: closed\r\n\r\n" + content
         else:
             error, errorLength = self.buildErrorResponse(status)
-            response = protocol + " " + status + errorLength + "Content-Type: text/html\r\n" + "Connection: closed\r\n\r\n" + error
+            response = protocol + " " + status + errorLength + "Content-Type: text/html; charset=UTF-8\r\n" + "Connection: closed\r\n\r\n" + error
         return response
 
     def buildErrorResponse(self, status):
@@ -93,15 +93,12 @@ class MyWebServer(socketserver.BaseRequestHandler):
         """
         contentType = "Content-type: "
         if "." not in filepath:
-            # Cautious about this one
-            contentType = contentType + "text/plain; charset=utf-8"
+            contentType = contentType + "text/plain; charset=UTF-8"
         else:
             if filepath[filepath.find(".") + 1 :] == "html":
-                contentType = contentType + "text/html"
+                contentType = contentType + "text/html; charset=UTF-8"
             elif filepath[filepath.find(".") + 1 :] == "css":
-                contentType = contentType + "text/css"
-            else:
-                contentType = contentType + "Unknown"
+                contentType = contentType + "text/css; charset=UTF-8"
         return contentType + "\r\n"
 
     def getContent(self, filepath):
