@@ -161,7 +161,6 @@ class MyWebServer(socketserver.BaseRequestHandler):
         self.data = self.request.recv(1024).strip()
         print ("Got a request of: %s\n" % self.data)
 
-        print("=====")
         # Extract the GET request
         request = unquote(self.data.decode()).split("\r\n")[0]
 
@@ -231,7 +230,6 @@ class MyWebServer(socketserver.BaseRequestHandler):
         if status != "":
             response = self.buildResponse(protocol, status, filepath) 
             self.request.sendall(bytearray(response, "utf-8"))
-            print("-----")
 
 
 if __name__ == "__main__":
