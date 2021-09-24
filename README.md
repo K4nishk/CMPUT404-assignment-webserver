@@ -24,3 +24,15 @@ examples thus some of the code is Copyright © 2001-2013 Python
 Software Foundation; All Rights Reserved under the PSF license (GPL
 compatible) http://docs.python.org/2/library/socketserver.html
 
+# Acknowledgements
+
+https://stackoverflow.com/questions/61880928/what-does-connection-0-to-host-example-com-left-intact-mean
+
+https://docs.python.org/3/library/socketserver.html#socketserver.BaseRequestHandler
+
+https://www.guru99.com/python-check-if-file-exists.html
+
+# Contributors
+
+Ashwin Mahesh: amahesh
+Belton He: jinzhou
